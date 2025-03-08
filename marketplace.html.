@@ -16,5 +16,11 @@
 
     <h1>Marketplace</h1>
     <p>Here, users can list and purchase virtual lands using Pi.</p>
+
+    <div id="land-list">
+        <!-- Lands will be added here dynamically -->
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
