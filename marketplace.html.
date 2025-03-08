@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head<script src="https://sdk.minepi.com/pi-sdk.js"></script>>
     <title>PiLand Marketplace</title>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
