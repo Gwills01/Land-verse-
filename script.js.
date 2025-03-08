@@ -14,12 +14,33 @@ document.addEventListener("DOMContentLoaded", function () {
             <h3>${land.name}</h3>
             <p>Price: ${land.price}</p>
             <p>Owner: ${land.owner}</p>
-            <button onclick="buyLand('${land.name}')">Buy</button>
+            ${land.owner === "Available" ? `<button onclick="buyLand('${land.name}', '${land.price}')">Buy</button>` : ""}
         `;
         landList.appendChild(landDiv);
     });
 });
 
-function buyLand(landName) {
-    alert(`You have selected to buy ${landName}. Payment system coming soon!`);
+// Pi Payment Integration
+function buyLand(landName, price) {
+    alert(`Initializing Pi Payment for ${landName} at ${price}...`);
+
+    // Pi Network SDK Payment Code (Test Mode)
+    const scopes = ['payments'];
+    window.Pi.authenticate(scopes, onIncompletePaymentFound)
+        .then(function (user) {
+            console.log('Pi User: ', user);
+            processPiPayment(landName, price);
+        })
+        .catch(function (error) {
+            console.error('Pi Authentication Failed: ', error);
+        });
+}
+
+// Simulate Pi Payment Processing
+function processPiPayment(landName, price) {
+    alert(`Payment for ${landName} at ${price} is being processed...`);
+}
+
+function onIncompletePaymentFound(payment) {
+    console.log('Incomplete Payment Found: ', payment);
 }
