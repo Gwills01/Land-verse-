@@ -1,0 +1,25 @@
+document.addEventListener("DOMContentLoaded", function () {
+    let landList = document.getElementById("land-list");
+
+    let lands = [
+        { name: "Plot A1", price: "50 Pi", owner: "Available" },
+        { name: "Plot B2", price: "75 Pi", owner: "Available" },
+        { name: "Plot C3", price: "100 Pi", owner: "Sold" }
+    ];
+
+    lands.forEach((land) => {
+        let landDiv = document.createElement("div");
+        landDiv.classList.add("land-item");
+        landDiv.innerHTML = `
+            <h3>${land.name}</h3>
+            <p>Price: ${land.price}</p>
+            <p>Owner: ${land.owner}</p>
+            <button onclick="buyLand('${land.name}')">Buy</button>
+        `;
+        landList.appendChild(landDiv);
+    });
+});
+
+function buyLand(landName) {
+    alert(`You have selected to buy ${landName}. Payment system coming soon!`);
+}
